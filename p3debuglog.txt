@@ -1,0 +1,98 @@
+gcc -g p3final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x6b2: file p3final.c, line 9.
+(gdb) r
+Starting program: /home/runner/IA1-Revision/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p3final.c:9
+9       int n = input();
+(gdb) s
+input (x=1) at p3final.c:20
+20      printf("Enter number n = ");
+(gdb) n
+21      scanf("%d", &x);
+(gdb) n
+Enter number n = 5
+22      return x;
+(gdb) n
+23  }
+(gdb) n
+main () at p3final.c:10
+10      int ans = sum_of_n_numbers(n);
+(gdb) s
+sum_of_n_numbers (n=5) at p3final.c:27
+27    int i = 1;
+(gdb) n
+28    int sum = 0;
+(gdb) n
+29    while (i <= n)
+(gdb) n
+31        sum += i;
+(gdb) n
+32        ++i;
+(gdb) n
+29    while (i <= n)
+(gdb) n
+31        sum += i;
+(gdb) nn
+Undefined command: "nn".  Try "help".
+(gdb) n
+32        ++i;
+(gdb) n
+29    while (i <= n)
+(gdb) n
+31        sum += i;
+(gdb) n
+32        ++i;
+(gdb) n
+29    while (i <= n)
+(gdb) n
+31        sum += i;
+(gdb) n
+32        ++i;
+(gdb) n
+29    while (i <= n)
+(gdb) n
+31        sum += i;
+(gdb) n
+32        ++i;
+(gdb) n
+29    while (i <= n)
+(gdb) n
+34    return sum;
+(gdb) n
+35  }
+(gdb) n
+main () at p3final.c:12
+12      output(n, ans);
+(gdb) s
+output (n=5, sum=15) at p3final.c:39
+39    printf("Sum of %d natural numbers = %d", n, sum);
+(gdb) n
+40  }(gdb) n
+main () at p3final.c:15
+15     return 0;
+(gdb) n
+16  }
+(gdb) c
+Continuing.
+Sum of 5 natural numbers = 15[Inferior 1 (process 595) exited normally]
+(gdb) quit
+ 
