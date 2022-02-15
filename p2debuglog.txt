@@ -16,31 +16,51 @@ Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
 Breakpoint 1 at 0x692: file p2final.c, line 9.
-(gdb) l
-1   #include <stdlib.h>
-2
-3   int input();
-4   int largest(int x, int y, int z);
-5   int output(int x, int y, int z, int result);
-6
-7   int main()
-8   {
-9       int a = input();
-10      int b = input();
 (gdb) r
 Starting program: /home/runner/IA1-Revision/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
 Breakpoint 1, main () at p2final.c:9
 9       int a = input();
+(gdb) s
+input (x=1) at p2final.c:24
+24      printf("Enter number = ");
 (gdb) n
-Enter number = 2
-10      int b = input();
+25      scanf("%d", &x);
 (gdb) n
 Enter number = 3
+26      return x;
+(gdb) n
+27  }
+(gdb) n
+main () at p2final.c:10
+10      int b = input();
+(gdb) s
+input (x=2019227376) at p2final.c:24
+24      printf("Enter number = ");
+(gdb) n
+25      scanf("%d", &x);
+(gdb) n
+Enter number = 
+4
+26      return x;
+(gdb) n
+27  }
+(gdb) n
+main () at p2final.c:11
 11      int c = input();
+(gdb) s
+input (x=2019227376) at p2final.c:24
+24      printf("Enter number = ");
+(gdb) n
+25      scanf("%d", &x);
 (gdb) n
 Enter number = 5
+26      return x;
+(gdb) n
+27  }
+(gdb) n
+main () at p2final.c:13
 13      int largestNumber = largest(a,b,c);
 (gdb) n
 15      printf("Largest no = %d\n", largestNumber);
@@ -49,15 +69,14 @@ Largest no = 5
 17      output(a,b,c,largestNumber);
 (gdb) n
 
-The Largest Number among 2, 3, 5 is 5
+The Largest Number among 3, 4, 5 is 5
 19      return 0;
 (gdb) n
 20  }
 (gdb) n
-__libc_start_main (main=0x562adb00068a <main>, argc=1, argv=0x7ffe53639e68, 
+__libc_start_main (main=0x55da32e0068a <main>, argc=1, argv=0x7ffc785afd48, 
     init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7ffe53639e58) at ../csu/libc-start.c:344
+    stack_end=0x7ffc785afd38) at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
 (gdb) n
-[Inferior 1 (process 424) exited normally]
-(gdb) 
+[Inferior 1 (process 760) exited normally]
